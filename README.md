@@ -17,7 +17,7 @@
 
 ## Projetos:
 
-* **Análise de Dados do AirBnb - Londres** https://bityli.com/4y79g
+* **Análise de Dados do AirBnb - Londres** https://github.com/jullymaellylima/data_science/blob/master/Analisando_os_Dados_do_Airbnb.ipynb
 
 
 ---
