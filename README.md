@@ -17,7 +17,7 @@
 
 ## Projetos:
 
-* **Como usar o Histograma para Data Science:** https://bit.ly/2L2cMwy
+* **Análise de Dados do AirBnb - Londres** https://bit.ly/2L2cMwy
 
 
 ---
