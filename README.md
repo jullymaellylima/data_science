@@ -5,7 +5,7 @@
 </p>
 
 # Jully Maelly Lima
-<sub>*Physical Engineer building a carrer as a Data Scientist</sub>
+<sub>*Engineering Physicists building a carrer as a Data Scientist</sub>
 
 
 **Background in:** Python and Machine Learning.
