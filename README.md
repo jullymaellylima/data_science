@@ -17,7 +17,7 @@
 
 ## Projetos:
 
-* **Análise de Dados do AirBnb - Londres** encurtador.com.br/qAGT2
+* **Análise de Dados do AirBnb - Londres** https://bityli.com/4y79g
 
 
 ---
