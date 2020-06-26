@@ -17,7 +17,7 @@
 
 ## Projetos:
 
-* **Análise de Dados do AirBnb - Londres** https://bit.ly/3eywnRx
+* **Análise de Dados do AirBnb - Londres** https://bit.ly/2BEUz68
 
 
 ---
