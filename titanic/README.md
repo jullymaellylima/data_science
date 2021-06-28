@@ -446,7 +446,7 @@ plt.savefig('hist.png', dpi=300)
 
 
     
-![png](output_15_0.png)
+![png](fig_readme/output_15_0.png)
     
 
 
@@ -516,7 +516,7 @@ plt.savefig('barplot.png', dpi=300)
 
 
     
-![png](output_18_0.png)
+![png](fig_readme/output_18_0.png)
     
 
 
@@ -531,7 +531,7 @@ plt.savefig('histplot.png', dpi=300)
 
 
     
-![png](output_19_0.png)
+![png](fig_readme/output_19_0.png)
     
 
 
@@ -546,7 +546,7 @@ plt.savefig('scattermatrix.png', dpi=300)
 
 
     
-![png](output_20_0.png)
+![png](fig_readme/output_20_0.png)
     
 
 
@@ -560,7 +560,7 @@ plt.savefig('Heatmap.png', dpi=300)
 
 
     
-![png](output_21_0.png)
+![png](fig_readme/output_21_0.png)
     
 
 
