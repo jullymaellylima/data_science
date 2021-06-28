@@ -29,7 +29,7 @@ A descrição do desafio e o dataset estão disponíveis na página do Kaggle: [
 
 # Objetivo
 
-Construção de um modelo preditivo, que utilize os dados dos passageiros para responder quais grupos de pessoas têm mais probabilidade de sobrevier.
+Análise exploratória dos datasets relacionados ao Titanic, e aplicação de um modelo de Regressão Logística.
 
 
 # Métrica de desempenho
@@ -282,7 +282,7 @@ display(train.head())
 </div>
 
 
-##Porcentagem de valores ausentes
+## Porcentagem de valores ausentes
 
 A variável ```Cabin``` é a que possui mais valores ausentes, 77%. A coluna ```Age``` vem em seguida, com mais de 19%, e a coluna ```Embarked``` possui 2% de valores ausentes.
 
@@ -312,7 +312,7 @@ A variável ```Cabin``` é a que possui mais valores ausentes, 77%. A coluna ```
 
 
 
-##Distribuição estatística dos dados
+## Distribuição estatística dos dados
 
 
 ```python
@@ -441,7 +441,7 @@ train.describe()
 #plotar histograma das variáveis numéricas
 
 train.hist(figsize=(10,8));
-plt.savefig('hist.png', dpi=300)
+plt.savefig('fig/hist.png', dpi=300)
 ```
 
 
@@ -511,7 +511,7 @@ fig, (axis1, axis2, axis3) = plt.subplots (1,3, figsize=(16,4))
 sns.barplot(x='Sex', y='Survived', data=train, ax=axis1)
 sns.barplot(x='Pclass', y='Survived', data=train, ax=axis2)
 sns.barplot(x='Embarked', y='Survived', data=train, ax=axis3);
-plt.savefig('barplot.png', dpi=300)
+plt.savefig('fig/barplot.png', dpi=300)
 ```
 
 
@@ -526,7 +526,7 @@ plt.savefig('barplot.png', dpi=300)
 
 age_survived = sns.FacetGrid(train, col='Survived')
 age_survived.map(sns.histplot, 'Age', kde=True);
-plt.savefig('histplot.png', dpi=300)
+plt.savefig('fig/histplot.png', dpi=300)
 ```
 
 
@@ -541,7 +541,7 @@ plt.savefig('histplot.png', dpi=300)
 
 columns=['Parch', 'SibSp', 'Age', 'Pclass']
 pd.plotting.scatter_matrix(train[columns], figsize=(15,10));
-plt.savefig('scattermatrix.png', dpi=300)
+plt.savefig('fig/scattermatrix.png', dpi=300)
 ```
 
 
@@ -555,7 +555,7 @@ plt.savefig('scattermatrix.png', dpi=300)
 #plotar o heatmap para variáveis numéricas
 sns.heatmap(train.corr(), cmap='coolwarm', fmt='.2f', linewidths=0.1,
             vmax=1.0, square=True, linecolor='white', annot=True);
-plt.savefig('Heatmap.png', dpi=300)
+plt.savefig('fig/Heatmap.png', dpi=300)
 ```
 
 
@@ -618,10 +618,10 @@ train.describe(include=['O'])
     </tr>
     <tr>
       <th>top</th>
-      <td>Braund, Mr. Owen Harris</td>
+      <td>Ridsdale, Miss. Lucy</td>
       <td>male</td>
       <td>CA. 2343</td>
-      <td>B96 B98</td>
+      <td>G6</td>
       <td>S</td>
     </tr>
     <tr>
@@ -645,7 +645,7 @@ Observando esses dados, temos que:
 * A frequência do sexo masculino é de 65% (577 de 891 pessoas);
 * O porto pelo qual embarcaram mais passageiros foi o de S = Southampton.
 
-# 4 Preparação dos Dados
+# 4. Preparação dos Dados
 
 Até agora, o que foi realizado se trata de analise exploratória, visualização de gráficos e correlação entre variáveis, etapas fundamentais no processo. 
 
@@ -733,7 +733,7 @@ embarked_top = df_merged['Embarked'].value_counts().index[0]
 df_merged['Embarked'].fillna(embarked_top, inplace=True)
 ```
 
-##Preparação das variáveis para o modelo
+## Preparação das variáveis para o modelo
 
 É necessário transformar variáveis categóricas em variáveis numéricas, por conta do modelo matemático. Então, a variável ```Sex``` é convertida para ```male```:0, e ```female```:1. Na variável ```Embarked``` é aplicado o conceito de variáveis dummies, onde uma nova coluna é criada para cada novo valor da variável, e assumem apenas os valores 0 e 1.
 
@@ -850,7 +850,7 @@ display(df_merged.head())
 </div>
 
 
-##Recuperação dos datasets de treino e teste
+## Recuperação dos datasets de treino e teste
 
 O dataset está preparado para a aplicação do modelo e é o momento de ser dividido em ```train```e ```test```, como era no início. 
 
@@ -862,9 +862,9 @@ train = df_merged.iloc[:train_idx]
 test = df_merged.iloc[train_idx:]
 ```
 
-#5 Construção do Modelo e Avaliação
+# 5. Construção do Modelo e Avaliação
 
-Será construído um modelo básicos d *Machine Learning*, o Modelo de Regressão Logística. 
+Será construído um modelo básico de *Machine Learning*, o Modelo de Regressão Logística. 
 
 
 ```python
@@ -897,7 +897,7 @@ submission = pd.DataFrame({
     })
 
 #gerar arquivo csv
-submission.to_csv('./submission_lr.csv', index=False)
+submission.to_csv('./result/submission_lr.csv', index=False)
 ```
 
 No Kaggle, o modelo aplicado conseguiu um *score* de 76%
