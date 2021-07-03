@@ -456,7 +456,7 @@ acc_rf = round(rf_model.score(train, target) *100, 2)
 print(f"Acurácia do modelo de Floresta Aleatória: {(acc_rf)}")
 ```
 
-    Acurácia do modelo de Floresta Aleatória: 82.83
+    Acurácia do modelo de Floresta Aleatória: 83.28
     
 
 
@@ -626,13 +626,13 @@ O modelo apresentou no Kaggle uma acurácia de 78%.
 ```python
 # comparação dos resultados
 
-resultado = pd.DataFrame({
+acuracia = pd.DataFrame({
         "MODELO": ['Logistic Regression', 'K-Nearest Neighbors', 'Decision Tree', 'Random Forest', 'XGBoost'],
-        "ACURACIA_DO_MODELO": [acc_logReg, acc_knn, acc_tree, acc_rf, acc_xgb], 
-        "SCORE_KAGGLE": [76.31, 65.55, 77.51, 77.51, 78.22]
+        "TREINO": [acc_logReg, acc_knn, acc_tree, acc_rf, acc_xgb], 
+        "TESTE": [76.31, 65.55, 77.51, 77.51, 78.22]
       })
 
-resultado
+acuracia
 ```
 
 
@@ -657,8 +657,8 @@ resultado
     <tr style="text-align: right;">
       <th></th>
       <th>MODELO</th>
-      <th>ACURACIA_DO_MODELO</th>
-      <th>SCORE_KAGGLE</th>
+      <th>TREINO</th>
+      <th>TESTE</th>
     </tr>
   </thead>
   <tbody>
@@ -683,7 +683,7 @@ resultado
     <tr>
       <th>3</th>
       <td>Random Forest</td>
-      <td>82.83</td>
+      <td>83.28</td>
       <td>77.51</td>
     </tr>
     <tr>
@@ -701,16 +701,17 @@ resultado
 
 ```python
 plt.figure(figsize=(8, 5))
-plt.plot(resultado['MODELO'], resultado['ACURACIA_DO_MODELO'], 
-         label='Acurácia do Modelo',
+plt.plot(acuracia['MODELO'], acuracia['TREINO'], 
+         label='Treino',
          linewidth=2.0)
-plt.plot(resultado['MODELO'], resultado['SCORE_KAGGLE'], 
+plt.plot(acuracia['MODELO'], acuracia['TESTE'], 
          color='red',   
          linewidth=2.0,
-         label='Score Kaggle' 
+         label='Teste' 
         )
 plt.xticks(rotation=45)
 plt.legend()
+plt.title('Acurácia')
 plt.savefig('comparacao.png', dpi = 300)
 ```
 
